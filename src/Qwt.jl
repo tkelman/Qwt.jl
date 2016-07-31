@@ -126,7 +126,7 @@ export
 
 function addToPythonPath()
   # add the python dir to PYTHONPATH
-  qwtPythonDir = "$(Pkg.dir("Qwt"))/src/python"
+  qwtPythonDir = joinpath(dirname(@__FILE__), "python")
   try
       ENV["PYTHONPATH"] = ENV["PYTHONPATH"] * ":" * qwtPythonDir
   catch
@@ -137,7 +137,7 @@ end
 addToPythonPath()
 
 # # add the python dir to PYTHONPATH
-# qwtPythonDir = "$(Pkg.dir("Qwt"))/src/python"
+# qwtPythonDir = joinpath(dirname(@__FILE__), "python")
 # try
 #     ENV["PYTHONPATH"] = ENV["PYTHONPATH"] * ":" * qwtPythonDir
 # catch
@@ -168,7 +168,7 @@ using PyCall
 function __init__()
 
   # # add the python dir to PYTHONPATH
-  # qwtPythonDir = "$(Pkg.dir("Qwt"))/src/python"
+  # qwtPythonDir = joinpath(dirname(@__FILE__), "python")
   # try
   #     ENV["PYTHONPATH"] = ENV["PYTHONPATH"] * ":" * qwtPythonDir
   # catch
